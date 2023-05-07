@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/page_MainPage"
+        android:title="MainPage" />
+    <item
+        android:id="@+id/Page_TransportSetting"
+        android:title="TransportSetting" />
+    <item
+        android:id="@+id/Page_DataPacketSetting"
+        android:title="DataPacketSetting" />
+
+</menu>

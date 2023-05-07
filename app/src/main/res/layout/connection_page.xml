@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/connectionPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Connecting"
+        android:textColor="#434343"
+        android:visibility="visible"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#26000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:srcCompat="@drawable/connection_page_settings"
+        app:tint="#595959" />
+
+    <ImageView
+        android:id="@+id/wifi"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/connection_page_wifi"
+        app:tint="#717171" />
+
+    <ImageView
+        android:id="@+id/loadingring"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="1dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:srcCompat="@drawable/connection_page_loadingring" />
+
+    <ImageView
+        android:id="@+id/retry"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/radius"
+        android:elevation="1dp"
+        android:rotationY="180"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/connection_page_retry"
+        app:tint="#717171" />
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Tap to connect"
+        android:textColor="#434343"
+        android:visibility="gone"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <LinearLayout
+        android:id="@+id/settingPage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintWidth_percent="0.95">
+
+        <EditText
+            android:id="@+id/ipSetting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:backgroundTint="#6C6C6C"
+            android:digits="0123456789."
+            android:gravity="center"
+            android:hint="IP"
+            android:inputType="number|text"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="#6C6C6C"
+            android:textColorHint="#6C6C6C"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/portSetting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:backgroundTint="#6C6C6C"
+            android:gravity="center"
+            android:hint="PORT"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="#6C6C6C"
+            android:textColorHint="#6C6C6C"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/saveSetting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:backgroundTint="#6C6C6C"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:visibility="visible"
+            app:autoSizeMinTextSize="1sp"
+            app:autoSizeTextType="uniform" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/connection_page_back"
+        app:tint="#595959" />
+</androidx.constraintlayout.widget.ConstraintLayout>

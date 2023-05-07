@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page_navigate"
+    app:startDestination="@id/page_MainPage">
+    <fragment
+        android:id="@+id/page_MainPage"
+        android:name="com.example.RemoteCarApp.View.Page_MainPage"
+        android:label="Page_MainPage" />
+    <fragment
+        android:id="@+id/Page_TransportSetting"
+        android:name="com.example.RemoteCarApp.View.Page_TransportSetting"
+        android:label="Page_TransportSetting" />
+    <fragment
+        android:id="@+id/Page_DataPacketSetting"
+        android:name="com.example.RemoteCarApp.View.Page_DataPacketSetting"
+        android:label="Page_DataPacketSetting" />
+</navigation>

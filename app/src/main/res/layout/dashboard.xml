@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/carBackSing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="180"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/carGround4"
+        app:layout_constraintEnd_toEndOf="@+id/car2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/car2"
+        app:layout_constraintTop_toBottomOf="@+id/car2"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/dashboard_car_backsing" />
+
+    <TextView
+        android:id="@+id/dashboard_tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="速度 : 0 km/h"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/carGround4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dashboard_tv_angle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="偏航角 :  0°"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_tv_speed" />
+
+    <ImageView
+        android:id="@+id/carGround4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotationX="30"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/dashboard_car_grid" />
+
+    <ImageView
+        android:id="@+id/car2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotationX="10"
+        app:layout_constraintBottom_toBottomOf="@id/carGround4"
+        app:layout_constraintDimensionRatio="1:1.5"
+        app:layout_constraintEnd_toEndOf="@id/carGround4"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintStart_toStartOf="@id/carGround4"
+        app:layout_constraintTop_toTopOf="@id/carGround4"
+        app:srcCompat="@drawable/dashboard_car_model_01" />
+
+
+    <ImageView
+        android:id="@+id/warningSingF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/car2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dashboard_car_warning" />
+
+    <ImageView
+        android:id="@+id/warningSingR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/car2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/car2"
+        app:layout_constraintTop_toTopOf="@+id/car2"
+        app:srcCompat="@drawable/dashboard_car_warning" />
+
+    <ImageView
+        android:id="@+id/warningSingL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/car2"
+        app:layout_constraintEnd_toStartOf="@+id/car2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/car2"
+        app:srcCompat="@drawable/dashboard_car_warning" />
+
+    <ImageView
+        android:id="@+id/warningSingB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/carGround4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/car2"
+        app:srcCompat="@drawable/dashboard_car_warning" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
