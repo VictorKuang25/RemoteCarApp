@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentContainerView = findViewById(R.id.fragmentContainerView);
 
 //        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        drawer.getMenu().findItem(R.id.Page_DataPacketSetting).setVisible(false);
 
         drawer.setNavigationItemSelectedListener(item -> {
-            if(Objects.requireNonNull(navController.getCurrentDestination()).getId() != R.id.page_MainPage) {
+            if(Objects.requireNonNull(navController.getCurrentDestination()).getId() != R.id.Page_MainPage) {
                 navController.popBackStack();
             } else navController.navigateUp();
 
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.close();
             return;
         }
-        if (Objects.requireNonNull(navController.getCurrentDestination()).getId() == R.id.page_MainPage) {
+        if (Objects.requireNonNull(navController.getCurrentDestination()).getId() == R.id.Page_MainPage) {
 //            if(System.currentTimeMillis() - exitTime > 2000) {
 //                exitTime = System.currentTimeMillis();
 //                exitToast();
