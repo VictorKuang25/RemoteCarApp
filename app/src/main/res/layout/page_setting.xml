@@ -138,75 +138,178 @@
         app:layout_constraintTop_toBottomOf="@id/warningDistanceSet"
         app:layout_constraintWidth_percent="0.4" />
 
-    <TextView
-        android:id="@+id/tv_rx_01"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:maxLines="2"
-        android:text="TextView"
-        app:autoSizeTextType="uniform"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/joystick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/Rx"
-        app:layout_constraintWidth_percent="0.4" />
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/Rx">
 
-    <TextView
-        android:id="@+id/tv_rx_02"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:maxLines="2"
-        android:text="TextView"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/tv_rx_01"
-        app:layout_constraintWidth_percent="0.4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_rx_03"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:maxLines="2"
-        android:text="TextView"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/tv_rx_02"
-        app:layout_constraintWidth_percent="0.4" />
+            <TextView
+                android:id="@+id/tv_rx_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
 
-    <TextView
-        android:id="@+id/tv_rx_04"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:maxLines="2"
-        android:text="TextView"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/tv_rx_03"
-        app:layout_constraintWidth_percent="0.4" />
+            <TextView
+                android:id="@+id/tv_rx_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
 
-    <TextView
-        android:id="@+id/tv_rx_05"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:maxLines="2"
-        android:text="TextView"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/tv_rx_04"
-        app:layout_constraintWidth_percent="0.4" />
+            <TextView
+                android:id="@+id/tv_rx_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+            <TextView
+                android:id="@+id/tv_rx_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="12dp"
+                android:text="TextView"
+                app:autoSizeTextType="uniform" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <com.example.RemoteCarApp.View.CustomView.View_Joystick
         android:id="@+id/joystick"
@@ -289,5 +392,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/bar_transferRate"
         app:layout_constraintStart_toEndOf="@+id/bar_transferRate"
         app:layout_constraintTop_toTopOf="@+id/bar_transferRate" />
+
+    <Button
+        android:id="@+id/btn_break"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#D50000"
+        android:text="stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

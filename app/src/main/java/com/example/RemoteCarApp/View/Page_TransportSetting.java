@@ -1,12 +1,15 @@
 package com.example.RemoteCarApp.View;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -35,7 +38,8 @@ public class Page_TransportSetting extends Fragment {
     ImageView btn_Tx;
     SeekBar bar_transmissionRate;
     TextView tv_transmissionRate;
-    TextView tv_rx_01,tv_rx_02,tv_rx_03,tv_rx_04,tv_rx_05;
+    TextView tv_rx_01,tv_rx_02,tv_rx_03,tv_rx_04,tv_rx_05,tv_rx_06,tv_rx_07,tv_rx_08,tv_rx_09,tv_rx_10,tv_rx_11,tv_rx_12;
+    Button btn_break;
 
     CarViewModel carViewModel;
 
@@ -66,6 +70,14 @@ public class Page_TransportSetting extends Fragment {
         tv_rx_03 = view.findViewById(R.id.tv_rx_03);
         tv_rx_04 = view.findViewById(R.id.tv_rx_04);
         tv_rx_05 = view.findViewById(R.id.tv_rx_05);
+        tv_rx_06 = view.findViewById(R.id.tv_rx_06);
+        tv_rx_07 = view.findViewById(R.id.tv_rx_07);
+        tv_rx_08 = view.findViewById(R.id.tv_rx_08);
+        tv_rx_09 = view.findViewById(R.id.tv_rx_09);
+        tv_rx_10 = view.findViewById(R.id.tv_rx_10);
+        tv_rx_11 = view.findViewById(R.id.tv_rx_11);
+        tv_rx_12 = view.findViewById(R.id.tv_rx_12);
+        btn_break = view.findViewById(R.id.btn_break);
 
         btcConnection.setOnClickListener(v -> connectionPage.show());
 
@@ -128,38 +140,33 @@ public class Page_TransportSetting extends Fragment {
             bar_brakingDistance.setProgress(integer);
         });
         carViewModel.isTransmitting().observe(getViewLifecycleOwner(), aBoolean -> btn_Tx.setImageTintList(ColorStateList.valueOf(aBoolean ? Color.GREEN : Color.GRAY)));
-        carViewModel.getMaxAngle().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                tv_angle.setText("Angle ( ± " + integer + "° )  : " + carViewModel.getCarAngle().getValue() + "°");
-                bar_maxAngle.setProgress(integer);
-            }
+        carViewModel.getMaxAngle().observe(getViewLifecycleOwner(), integer -> {
+            tv_angle.setText("Angle ( ± " + integer + "° )  : " + carViewModel.getCarAngle().getValue() + "°");
+            bar_maxAngle.setProgress(integer);
         });
 
-        carViewModel.getRx_laserF().observe(getViewLifecycleOwner(), new Observer<Float>() {
-            @Override
-            public void onChanged(Float aFloat) {
-                tv_rx_01.setText("Laser_Front : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") );
-            }
+        carViewModel.getRx_laserF().observe(getViewLifecycleOwner(), aFloat -> tv_rx_01.setText("Laser_Front : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") ));
+        carViewModel.getRx_laserB().observe(getViewLifecycleOwner(), aFloat -> tv_rx_02.setText("Laser_Back : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") ));
+        carViewModel.getRx_laserL().observe(getViewLifecycleOwner(), aFloat -> tv_rx_03.setText("Laser_Left : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") ));
+        carViewModel.getRx_laserR().observe(getViewLifecycleOwner(), aFloat -> tv_rx_04.setText("Laser_Right : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") ));
+
+        carViewModel.getEmergencyBreakEvent().observe(getViewLifecycleOwner(), s -> {
+            if(s == null || s.isEmpty()) return;
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setTitle("Warning").setMessage(s).setPositiveButton("Return", null);
+            builder.create().show();
         });
-        carViewModel.getRx_laserB().observe(getViewLifecycleOwner(), new Observer<Float>() {
-            @Override
-            public void onChanged(Float aFloat) {
-                tv_rx_02.setText("Laser_Back : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") );
-            }
-        });
-        carViewModel.getRx_laserL().observe(getViewLifecycleOwner(), new Observer<Float>() {
-            @Override
-            public void onChanged(Float aFloat) {
-                tv_rx_03.setText("Laser_Left : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") );
-            }
-        });
-        carViewModel.getRx_laserR().observe(getViewLifecycleOwner(), new Observer<Float>() {
-            @Override
-            public void onChanged(Float aFloat) {
-                tv_rx_04.setText("Laser_Right : " + (aFloat != null ? Math.round(aFloat*100)/100f + "cm" : "null") );
-            }
-        });
+
+        carViewModel.getRx_gx().observe(getViewLifecycleOwner(), aFloat -> tv_rx_05.setText("Gx : " + (aFloat != null ? Math.round(aFloat*100)/100f + "°/s" : "null") ));
+        carViewModel.getRx_gy().observe(getViewLifecycleOwner(), aFloat -> tv_rx_06.setText("Gy : " + (aFloat != null ? Math.round(aFloat*100)/100f + "°/s" : "null") ));
+        carViewModel.getRx_gz().observe(getViewLifecycleOwner(), aFloat -> tv_rx_07.setText("Gz : " + (aFloat != null ? Math.round(aFloat*100)/100f + "°/s" : "null") ));
+        carViewModel.getRx_ax().observe(getViewLifecycleOwner(), aFloat -> tv_rx_08.setText("Ax : " + (aFloat != null ? Math.round(aFloat*100)/100f + "m/s²" : "null") ));
+        carViewModel.getRx_ay().observe(getViewLifecycleOwner(), aFloat -> tv_rx_09.setText("Ay : " + (aFloat != null ? Math.round(aFloat*100)/100f + "m/s²" : "null") ));
+        carViewModel.getRx_az().observe(getViewLifecycleOwner(), aFloat -> tv_rx_10.setText("Az : " + (aFloat != null ? Math.round(aFloat*100)/100f + "m/s²" : "null") ));
+
+        carViewModel.getRx_temperature().observe(getViewLifecycleOwner(), aFloat -> tv_rx_11.setText("temperature : " + (aFloat != null ? Math.round(aFloat*10)/10f + "°C" : "null") ));
+
+        carViewModel.getRx_battery().observe(getViewLifecycleOwner(), aFloat -> tv_rx_12.setText("Battery : " + (aFloat != null ? Math.round(aFloat*100)/100f + "%" : "null") ));
         //---------------------- user control -----------------------------
         connectionPage.setOnGetEventListener((event, ip, port) -> {
             switch (event) {
@@ -262,6 +269,12 @@ public class Page_TransportSetting extends Fragment {
             }
         });
 
+        btn_break.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                carViewModel.setCarSpeed(0f);
+            }
+        });
 //
 //        //----------- update connection ui -----------
 //

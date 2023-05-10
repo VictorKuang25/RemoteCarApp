@@ -26,6 +26,10 @@ public class ServerImpl {
         return socketIO.send(bytes);
     }
 
+    public void read(int readByteSize, SocketIO.OnGetInputListener onGetInputListener) {
+        socketIO.read(readByteSize,onGetInputListener);
+    }
+
     public boolean isConnected(){
         if(socketIO == null) return false;
         return socketIO.isConnect();
