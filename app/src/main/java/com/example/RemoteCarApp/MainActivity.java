@@ -3,9 +3,12 @@ package com.example.RemoteCarApp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentContainerView;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.TextView;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView drawer;
     FragmentContainerView fragmentContainerView;
     NavController navController;
+
+    CarViewModel carViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
             navController.navigate(item.getItemId());
             drawerLayout.close();
             return false;
+        });
+
+        //-------------------------------
+        SharedPreferences myPreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor preferencesEditor = myPreferences.edit();
+
+        carViewModel = new ViewModelProvider(this).get(CarViewModel.class);
+        carViewModel.saveIp(myPreferences.getString("IP","127.0.0.1"), myPreferences.getInt("PORT",5050));
+        carViewModel.getIpAddress().observe(this, ipAddress -> {
+            preferencesEditor.putString("IP",ipAddress.getIp());
+            preferencesEditor.putInt("PORT",ipAddress.getPort());
+            preferencesEditor.apply();
         });
     }
 
